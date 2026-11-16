@@ -1,16 +1,25 @@
-# nivel 1
+print("=== Sistema de Notas - Nível 2 ===")
 
-print("=== Sistema de Notas - Nível 1 ===")
+while True:
+    nome = input("\nDigite o nome do aluno (ou 'sair' para encerrar): ")
+    if nome.lower() == 'sair':
+        print("Encerrando o sistema...")
+        break
 
-nota1 = float(input("Digite a 1ª nota (0 a 10): "))
-nota2 = float(input("Digite a 2ª nota (0 a 10): "))
-nota3 = float(input("Digite a 3ª nota (0 a 10): "))
+    soma_notas = 0
+    for i in range(1, 4):
+        while True:
+            nota = float(input(f"Digite a {i}ª nota de {nome}: "))
+            if 0 <= nota <= 10:
+                soma_notas += nota
+                break
+            else:
+                print("Nota inválida. Por favor, digite um valor entre 0 e 10.")
 
-media = (nota1 + nota2 + nota3) / 3
-
-print(f"\nA média final foi: {media:.2f}")
-
-if media >= 6.0:
-    print("Status: Aluno APROVADO! 🎉")
-else:
-    print("Status: Aluno REPROVADO. ❌")
+    media = soma_notas / 3
+    print(f"\nMédia de {nome}: {media:.2f}")
+    
+    if media >= 6.0:
+        print("Status: Aluno APROVADO! 🎉")
+    else:
+        print("Status: Aluno REPROVADO. ❌")
